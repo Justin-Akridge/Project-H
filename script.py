@@ -1,25 +1,25 @@
 import pyautogui
-pyautogui.PAUSE=1
-pyautogui.FAILSAFE=True
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service, By
 
-print(pyautogui.size())
+service = Service(executable_path="/path/to/chromedriver")
+driver = webdriver.Chrome(service=service)
 
-width, height = pyautogui.size()
+# This needs to be the current page
+driver.get("https://katapultpro.com/map")
+
+comm_bottom = driver.find_element(by=By.NAME, value="")
+
+screen_width, screen_height = pyautogui.size()
 # pyautogui.moveTo(100, 200, duration=.25)
-
-
 # pyautogui.moveRel(0, -100, duration=.25)
 
 
 moveToX = 1000
 moveToY = 800
 pyautogui.mouseDown(x=moveToX, y=moveToY, button='left')
-
-
 pyautogui.scroll(500, x=moveToX, y=moveToY)
 
-midspans = [...midspans]
-classified = [...midspans]
 
 def check_midspan(inches, span_type):
     if span_type == 'backyard':
@@ -33,14 +33,9 @@ def check_midspan(inches, span_type):
             return True
 
 def get_midspans():
-    # Collect all midspan heights come how
+    # Collect all midspan heights 
     number_of_midspans = get_number_of_midspans()
     midspan_height = [] * number_of_midspans
-    for i in range(len(midspan_height)):
-        # do we collect midspan type before or after the loop?
-        for j in range(len(midspan_height[i])):
-            if check_midspan(midspan_height):
-                # ma
 
 def get_number_of_midspans():
     # Get each branch form the pole
@@ -49,12 +44,11 @@ def get_number_of_midspans():
 
 def collect_midspan_type():
     # Collect midspan type
-    midspan_type = ....
+    midspan_type = 'backyard' 
     return midspan_type
 
 def located_icon():
     # TODO [] GET PNG FILE OF KATAPULT HEIGHT ICON
-    
     location = pyautogui.locateOnScreen('violation.png')
     if location == 'ImageNotFoundException':
         return 0
