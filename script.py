@@ -1,15 +1,15 @@
 import pyautogui
-# from selenium import webdriver
-from selenium.webdriver.chrome.service import Service, By
+from selenium import webdriver
+from webdriver_manager.chrome import ChromeDriverManager
 
-service = Service(executable_path="/path/to/chromedriver")
-driver = webdriver.Chrome(service=service)
+driver = webdriver.Chrome(ChromeDriverManager().install())
 
 # # This needs to be the current page
 # # driver.get("https://katapultpro.com/map/#-NVj5c3UJChii6bl29uW/n-NSqv6LZOuKvI6KuOe3g")
 
 # moveContainer is the class name
-comm_bottom = driver.find_element(by=By.CLASS, value="moveContainer")
+comm_bottom = driver.find_element(By.CLASS, "moveContainer")
+print(comm_bottom)
 
 screen_width, screen_height = pyautogui.size()
 pyautogui.moveTo(100, 200, duration=.25)
@@ -19,7 +19,6 @@ moveToX = 1000
 moveToY = 800
 pyautogui.mouseDown(x=moveToX, y=moveToY, button='left')
 pyautogui.scroll(500, x=moveToX, y=moveToY)
-
 
 def check_midspan(inches, span_type):
     if span_type == 'backyard':
