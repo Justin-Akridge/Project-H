@@ -1,19 +1,19 @@
 import pyautogui
-from selenium import webdriver
+# from selenium import webdriver
 from selenium.webdriver.chrome.service import Service, By
 
 service = Service(executable_path="/path/to/chromedriver")
 driver = webdriver.Chrome(service=service)
 
-# This needs to be the current page
-driver.get("https://katapultpro.com/map")
+# # This needs to be the current page
+# # driver.get("https://katapultpro.com/map/#-NVj5c3UJChii6bl29uW/n-NSqv6LZOuKvI6KuOe3g")
 
-comm_bottom = driver.find_element(by=By.NAME, value="")
+# moveContainer is the class name
+comm_bottom = driver.find_element(by=By.CLASS, value="moveContainer")
 
 screen_width, screen_height = pyautogui.size()
-# pyautogui.moveTo(100, 200, duration=.25)
-# pyautogui.moveRel(0, -100, duration=.25)
-
+pyautogui.moveTo(100, 200, duration=.25)
+pyautogui.moveRel(0, -100, duration=.25)
 
 moveToX = 1000
 moveToY = 800
