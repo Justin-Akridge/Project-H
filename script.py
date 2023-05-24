@@ -20,6 +20,20 @@ moveToY = 800
 pyautogui.mouseDown(x=moveToX, y=moveToY, button='left')
 pyautogui.scroll(500, x=moveToX, y=moveToY)
 
+def tests():
+    assert check_for_ccv(["15\'6\""]) == True
+
+if __name__ == "__main__":
+    tests()
+    # Run main in production
+
+def check_for_ccv(comms, power):
+    # [] function to return true if in violation
+    # we want to get the lowest power
+    comms.sort()
+    for i in range(len(comms)):
+        if heights[i] < 
+
 def check_midspan(inches, span_type):
     if span_type == 'backyard':
         if inches < 114:
@@ -58,3 +72,5 @@ def located_icon():
 def move_icon_down():
     x, y = located_icon()
     pyautogui.click(x, y) 
+
+def main():
