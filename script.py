@@ -54,7 +54,6 @@ def located_icon():
         return 0
     else:
         return location
-
     # THIS WILL RETURN THE LOCATION OF PIXELS (LEFT, TOP, WIDTH, HEIGHT)
 
 def move_icon_down():
