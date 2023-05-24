@@ -52,10 +52,17 @@ def collect_midspan_type():
     midspan_type = ....
     return midspan_type
 
+def move_icon_down():
+    x, y = located_icon()
+    pyautogui.click(x, y) 
 
+def located_icon():
+    # TODO [] GET PNG FILE OF KATAPULT HEIGHT ICON
+    
+    location = pyautogui.locateOnScreen('violation.png')
+    if location == 'ImageNotFoundException':
+        return 0
+    else:
+        return location
 
-
- for i in range(len(midspans)):
-        # [TODO] make changes to screen
-        else:
-            continue
+    # THIS WILL RETURN THE LOCATION OF PIXELS (LEFT, TOP, WIDTH, HEIGHT)
