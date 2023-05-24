@@ -52,10 +52,6 @@ def collect_midspan_type():
     midspan_type = ....
     return midspan_type
 
-def move_icon_down():
-    x, y = located_icon()
-    pyautogui.click(x, y) 
-
 def located_icon():
     # TODO [] GET PNG FILE OF KATAPULT HEIGHT ICON
     
@@ -66,3 +62,7 @@ def located_icon():
         return location
 
     # THIS WILL RETURN THE LOCATION OF PIXELS (LEFT, TOP, WIDTH, HEIGHT)
+
+def move_icon_down():
+    x, y = located_icon()
+    pyautogui.click(x, y) 
