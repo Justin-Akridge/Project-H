@@ -1,76 +1,30 @@
-import pyautogui
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.common.by import By
 from selenium import webdriver
-from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.action_chains import ActionChains
 
-driver = webdriver.Chrome(ChromeDriverManager().install())
+chrome_options = Options()
 
-# # This needs to be the current page
-# # driver.get("https://katapultpro.com/map/#-NVj5c3UJChii6bl29uW/n-NSqv6LZOuKvI6KuOe3g")
+chrome_options.add_experimental_option("detach", True)
 
-# moveContainer is the class name
-comm_bottom = driver.find_element(By.CLASS, "moveContainer")
-print(comm_bottom)
 
-screen_width, screen_height = pyautogui.size()
-pyautogui.moveTo(100, 200, duration=.25)
-pyautogui.moveRel(0, -100, duration=.25)
 
-moveToX = 1000
-moveToY = 800
-pyautogui.mouseDown(x=moveToX, y=moveToY, button='left')
-pyautogui.scroll(500, x=moveToX, y=moveToY)
+driver = webdriver.Chrome(options= chrome_options)
 
-def tests():
-    assert check_for_ccv(["15\'6\""]) == True
+driver.get('https://katapultpro.com/map/#-NVj5c3UJChii6bl29uW')
 
-if __name__ == "__main__":
-    tests()
-    # Run main in production
+print(driver)
+#name of the png
 
-def check_for_ccv(comms, power):
-    # [] function to return true if in violation
-    # we want to get the lowest power
-    comms.sort()
-    for i in range(len(comms)):
-        if heights[i] < 
+clickable = driver.find_element(By.PARTIAL_LINK_TEXT, "https://maps.gstatic.com/mapfiles/transparent.png")
+print(clickable)
+ActionChains(driver)\
+    .double_click(clickable)\
+    .perform()
 
-def check_midspan(inches, span_type):
-    if span_type == 'backyard':
-        if inches < 114:
-            return True
-    if span_type == 'roadway' or span_type == 'driveway':
-        if inches < 186:
-            return True
-    if span_type == 'highway' or 'interstate':
-        if inches < 216:
-            return True
-
-def get_midspans():
-    # Collect all midspan heights 
-    number_of_midspans = get_number_of_midspans()
-    midspan_height = [] * number_of_midspans
-
-def get_number_of_midspans():
-    # Get each branch form the pole
-    number_of_midspans = 1 #fill in value
-    return number_of_midspans
-
-def collect_midspan_type():
-    # Collect midspan type
-    midspan_type = 'backyard' 
-    return midspan_type
-
-def located_icon():
-    # TODO [] GET PNG FILE OF KATAPULT HEIGHT ICON
-    location = pyautogui.locateOnScreen('violation.png')
-    if location == 'ImageNotFoundException':
-        return 0
-    else:
-        return location
-    # THIS WILL RETURN THE LOCATION OF PIXELS (LEFT, TOP, WIDTH, HEIGHT)
-
-def move_icon_down():
-    x, y = located_icon()
-    pyautogui.click(x, y) 
-
-def main():
+clickable = driver.find_element(By.CLASS, "moveContainer")
+print(clickable)
+ActionChains(driver)\
+    .double_click(clickable)\
+    .perform()
